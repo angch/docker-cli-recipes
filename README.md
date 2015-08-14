@@ -1,6 +1,6 @@
-= Docker CLI recipes =
+# Docker CLI recipes
 
-== Stops all running docker containers ==
+## Stops all running docker containers
 
 When doing development, and some clusters of containers are still using some of your ports
 
@@ -8,7 +8,7 @@ When doing development, and some clusters of containers are still using some of 
 docker ps | awk '{print $1}' | tail -n+2 | xargs docker stop
 ```
 
-== Mirror/vendor an external docker image ==
+## Mirror/vendor an external docker image
 
 If all developers are using the same large external image and you want to save 10+ developers
 from hammering docker's official servers (or when it's slow), and you have a local docker registry
