@@ -23,3 +23,20 @@ docker push $LOCALREG/$IMAGE
 ```
 So other developers and your project's docker-compose can just refer to $LOCALREG/$IMAGE for faster
 image downloads
+
+## Mini docker garbage collection
+
+A little more conservative than using https://github.com/spotify/docker-gc
+
+### Remove stopped containers
+
+```
+docker rm $(docker ps -aq) 
+```
+
+### Remove stale dangling images
+
+```
+docker rmi $(docker images -q -f "dangling=true")﻿
+```
+
